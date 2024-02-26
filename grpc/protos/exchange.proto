@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package exchange;
+
+service ExchangeService {
+  rpc GetExchangeRate(GetExchangeRateRequest) returns (GetExchangeRateResponse);
+  rpc GetExchangeRateStream(GetExchangeRateRequest) returns (stream GetExchangeRateResponse);
+}
+
+message GetExchangeRateRequest {
+  string base = 1;
+  string quote = 2;
+}
+
+message GetExchangeRateResponse {
+  int64 rate = 1;
+}
+
+
